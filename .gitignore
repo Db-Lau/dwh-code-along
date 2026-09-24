@@ -1,3 +1,9 @@
+# dbt
+target/
+dbt_packages/
+logs/
+.env
+
 # dlt
 **/.dlt/
 

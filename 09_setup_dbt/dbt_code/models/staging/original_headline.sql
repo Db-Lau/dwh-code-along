@@ -1,0 +1,2 @@
+SELECT headline
+FROM job_ads.staging.technical_field_job_ads 
