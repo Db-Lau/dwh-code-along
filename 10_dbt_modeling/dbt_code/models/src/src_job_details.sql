@@ -8,7 +8,6 @@ select
     employment_type__label as employment_type,
     duration__label as duration,
     salary_type__label as salary_type,
-    salary_description, 
     working_hours_type__label as working_hours_type,
     scope_of_work__min as scope_of_work_min,
     scope_of_work__max as scope_of_work_max

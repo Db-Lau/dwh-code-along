@@ -9,3 +9,4 @@ select
     relevance,
     application_deadline
 from job_ads
+
