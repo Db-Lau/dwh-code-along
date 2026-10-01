@@ -13,7 +13,7 @@ GRANT SELECT ON FUTURE VIEWS IN SCHEMA job_ads.marts TO ROLE job_ads_reporter_ro
 
 
 GRANT ROLE job_ads_reporter_role TO USER reporter;
-GRANT ROLE job_ads_reporter_role TO USER debbie;
+GRANT ROLE job_ads_reporter_role TO USER dblau;
 
 USE ROLE job_ads_reporter_role;
 
