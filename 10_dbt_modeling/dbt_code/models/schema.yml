@@ -1,8 +1,12 @@
 models:
 
+  - name: dim_occupation
+    description: "The dimension is a collection of unique occupation"
+
   - name: fct_job_ads
     columns:
       - name: occupation_id
+        description: "Foreign key, a surrogate key generated for each unique occupation."
         data_tests:
           - relationships:
               to: ref('dim_occupation')
