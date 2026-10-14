@@ -12,6 +12,7 @@ import dlt
 import dagster as dg
 from dagster_dlt import DagsterDltResource, dlt_assets
 from dagster_dbt import DbtCliResource, DbtProject, dbt_assets
+import os
 
 # to import dlt script from another folder outside the orchestration folder
 # this part is not needed if you create a package for your dagster scripts
@@ -57,7 +58,7 @@ def dlt_load(context: dg.AssetExecutionContext, dlt: DagsterDltResource):
 # Points to the dbt project path
 dbt_project_directory = Path(__file__).parents[1] / "data_transformation"
 # Define the path to your profiles.yml file (in your home directory)
-profiles_dir = Path.home() / ".dbt"  
+profiles_dir = os.getenv("DBT_PROFILES_DIR") 
 
 # instance of DbtProject with all necessary paths
 dbt_project = DbtProject(project_dir=dbt_project_directory,

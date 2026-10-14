@@ -1,0 +1,18 @@
+FROM python:3.13
+
+ENV DBT_PROFILES_DIR=/pipeline 
+
+WORKDIR /pipeline
+COPY pyproject.toml ./
+
+RUN pip install --no-cache-dir uv
+RUN uv sync --no-dev
+
+COPY data_extract_load/ ./data_extract_load/
+COPY data_transformation/ ./data_transformation/
+COPY profiles.yml /pipeline/profiles.yml
+COPY orchestration/ ./orchestration/
+
+WORKDIR /pipeline/orchestration
+
+CMD ["uv", "run", "dagster", "dev", "-f", "definitions.py", "-h", "0.0.0.0", "-p", "3000"]

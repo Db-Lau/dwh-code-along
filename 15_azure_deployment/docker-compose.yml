@@ -1,0 +1,20 @@
+services:
+  dwh_pipeline:
+    build: 
+      context: .
+      dockerfile: dockerfile.dwh
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    image: crhranalytics.azurecr.io/dwh_pipeline:latest
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: dockerfile.dashboard
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    image: crhranalytics.azurecr.io/dashboard:latest

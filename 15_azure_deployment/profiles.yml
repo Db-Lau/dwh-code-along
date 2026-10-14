@@ -1,0 +1,13 @@
+dbt_snowflake: 
+  target: dev 
+  outputs: 
+    dev: 
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: transformer
+      password: "{{ env_var('SNOWFLAKE_USER_TRANSFORMER_PASSWORD') }}"
+      role: job_ads_dbt_role
+      database: job_ads
+      warehouse: dev_wh
+      schema: warehouse
+      client_session_keep_alive: False
