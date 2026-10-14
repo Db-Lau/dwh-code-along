@@ -1,0 +1,13 @@
+FROM python:3.13
+
+WORKDIR /app
+COPY pyproject.toml ./
+
+RUN pip install --no-cache-dir uv
+RUN uv sync --no-dev
+
+WORKDIR /app/dashboard
+
+COPY dashboard/ /app/dashboard/
+
+CMD ["uv", "run", "streamlit", "run", "dashboard.py", "--server.port=8501", "--server.address=0.0.0.0"]
